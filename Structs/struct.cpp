@@ -30,7 +30,7 @@ int main(){
     gets(al.nombre);
     printf("\nDame la edad: ");
     scanf("%d",&al.edad);
-    printf("\nDame la edad: ");
+    printf("\nDame el promedio: ");
     scanf("%f",&al.promedio);
 
     printf("\n nombre: %s",al.nombre);
