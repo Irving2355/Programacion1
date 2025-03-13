@@ -56,7 +56,7 @@ void llenar(animal ani[TAM]){
     int tipo;
     for(int i=0; i<TAM; i++){
         tipo = capturartipo();
-        cout << endl << "Dame la des";
+        cout << endl << "Dame la descipcion: ";
         fflush(stdin); //limpia subuffer
         cin.getline(ani[i].descripcion,30);
 
@@ -82,3 +82,29 @@ void llenar(animal ani[TAM]){
         }// fin switch
     }//fin for
 }//fin de la funcion
+
+void imprimir(animal ani[TAM]){
+    cout << endl << endl << "---->Reporte<----";
+    for(int i=0;i<TAM; i++){
+        cout << endl;
+        switch (ani[i].tp)
+        {
+        case DOMESTICOS:
+            cout << endl << "Animal domestico";
+            cout << endl << "Desciprcion: " << ani[i].descripcion;
+            cout << endl << "Vida promedio: " << ani[i].ct.vidaPromedio;            
+            break;
+        case SALVAJE:
+            cout << endl << "Animal salvaje";
+            cout << endl << "Desciprcion: " << ani[i].descripcion;
+            cout << endl << "Region que habita: " << ani[i].ct.regionHabita;
+            break;
+        case ACUATICOS:
+            cout << endl << "Animal acuatico";
+            cout << endl << "Desciprcion: " << ani[i].descripcion;
+            cout << endl << "Tipo de agua: " << ani[i].ct.tipoAgua;
+            break;
+        }//fin switch
+    }//fin for
+}//fin imprimir
+
