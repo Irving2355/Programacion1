@@ -39,6 +39,11 @@ void consultaagua(animal ani[TAM]);
 using namespace std;
 
 int main(){
+    animal ani[TAM];
+    
+    llenar(ani);
+    imprimir(ani);
+    consultarportipo(ani);
     return 0;
 }
 
@@ -92,7 +97,7 @@ void imprimir(animal ani[TAM]){
         case DOMESTICOS:
             cout << endl << "Animal domestico";
             cout << endl << "Desciprcion: " << ani[i].descripcion;
-            cout << endl << "Vida promedio: " << ani[i].ct.vidaPromedio;            
+            cout << endl << "Vida promedio: " << ani[i].ct.vidaPromedio << "anios";            
             break;
         case SALVAJE:
             cout << endl << "Animal salvaje";
@@ -105,6 +110,35 @@ void imprimir(animal ani[TAM]){
             cout << endl << "Tipo de agua: " << ani[i].ct.tipoAgua;
             break;
         }//fin switch
+    }//fin for
+}//fin imprimir
+
+void consultarportipo(animal ani[TAM]){
+    int tipo;
+    cout << endl << "--->Consulta por tipo<------" << endl;
+    tipo=capturartipo();
+    for(int i=0;i<TAM; i++){
+        cout << endl;
+        if(tipo==ani[i].tp){
+            switch (tipo)
+            {
+            case 0:
+                cout << endl << "Animal domestico";
+                cout << endl << "Desciprcion: " << ani[i].descripcion;
+                cout << endl << "Vida promedio: " << ani[i].ct.vidaPromedio << "anios";            
+                break;
+            case 1:
+                cout << endl << "Animal salvaje";
+                cout << endl << "Desciprcion: " << ani[i].descripcion;
+                cout << endl << "Region que habita: " << ani[i].ct.regionHabita;
+                break;
+            case 2:
+                cout << endl << "Animal acuatico";
+                cout << endl << "Desciprcion: " << ani[i].descripcion;
+                cout << endl << "Tipo de agua: " << ani[i].ct.tipoAgua;
+                break;
+            }//fin switch
+        }//fin if   
     }//fin for
 }//fin imprimir
 
