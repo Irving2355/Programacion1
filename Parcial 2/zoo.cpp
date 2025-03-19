@@ -34,17 +34,37 @@ const int TAM = 3;
 void llenar(animal ani[TAM]);
 void imprimir(animal ani[TAM]);
 void consultarportipo(animal ani[TAM]);
-void consultaagua(animal ani[TAM]);
+void consultaagua(animal ani[TAM], char agua[15]);
 
 using namespace std;
 
 int main(){
     animal ani[TAM];
+    char agua[15];
     
     llenar(ani);
     imprimir(ani);
     consultarportipo(ani);
+    cout << endl << "Animal de cual tipo de agua deseas consultar: ";
+    fflush(stdin);
+    cin.getline(agua,15);
+    consultaagua(ani,agua);
     return 0;
+}
+
+void consultaagua(animal ani[TAM], char agua[15]){
+    int contador=0;
+    for(int i=0; i<TAM; i++){
+        if(ani[i].tp == ACUATICOS){
+            if(strcmp(ani[i].ct.tipoAgua,agua) == 0){
+                cout << endl << ani[i].descripcion;
+                contador++;
+            }
+        }
+    }
+    if(contador == 0){
+        cout << endl << "No hay animales registrados";
+    }
 }
 
 int capturartipo(){
@@ -96,17 +116,17 @@ void imprimir(animal ani[TAM]){
         {
         case DOMESTICOS:
             cout << endl << "Animal domestico";
-            cout << endl << "Desciprcion: " << ani[i].descripcion;
+            cout << endl << "Descriprcion: " << ani[i].descripcion;
             cout << endl << "Vida promedio: " << ani[i].ct.vidaPromedio << "anios";            
             break;
         case SALVAJE:
             cout << endl << "Animal salvaje";
-            cout << endl << "Desciprcion: " << ani[i].descripcion;
+            cout << endl << "Descriprcion: " << ani[i].descripcion;
             cout << endl << "Region que habita: " << ani[i].ct.regionHabita;
             break;
         case ACUATICOS:
             cout << endl << "Animal acuatico";
-            cout << endl << "Desciprcion: " << ani[i].descripcion;
+            cout << endl << "Descriprcion: " << ani[i].descripcion;
             cout << endl << "Tipo de agua: " << ani[i].ct.tipoAgua;
             break;
         }//fin switch
@@ -124,7 +144,7 @@ void consultarportipo(animal ani[TAM]){
             {
             case 0:
                 cout << endl << "Animal domestico";
-                cout << endl << "Desciprcion: " << ani[i].descripcion;
+                cout << endl << "Descripcion: " << ani[i].descripcion;
                 cout << endl << "Vida promedio: " << ani[i].ct.vidaPromedio << "anios";            
                 break;
             case 1:

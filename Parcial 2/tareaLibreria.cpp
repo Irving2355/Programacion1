@@ -19,7 +19,7 @@ union informacion{
         int anio;
     }drev; 
     //drev sera una forma abreviada de llamar el 
-    //struct a esto de le conoce como typeref
+    //struct a esto de le conoce como typedef
         
     struct datosperiodico
     {
@@ -58,7 +58,7 @@ void imprimir(publicaciones pub[TAM]){
     for(int i=0; i<TAM; i++){
         cout << endl << endl << "Datos de la publicacion guardada en la posicion  "<< i << endl;
         switch(pub[i].tipo){
-            case LIBROS:
+        case LIBROS:
             cout << endl << "LIBRO";
             cout << endl << "nombre: " << pub[i].nompub;
             cout << endl << "categoria: " << pub[i].inf.dlibro.categoria;
