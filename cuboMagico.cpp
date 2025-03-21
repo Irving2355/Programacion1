@@ -8,7 +8,7 @@ using namespace std;
 void generarMatriz(int matriz[][TAM], int n){
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
-            matriz[i][j] = rand() % 9 + 1;
+            matriz[i][j] = rand() % 100 + 1;
         }
     }
 }
@@ -31,7 +31,7 @@ bool esCuadradoMagico(int matriz[][TAM], int n){
     //verificar las demas filas
     for(int i=0; i<n; i++){
         int sumaFila = 0;
-        for(int j=0; j<TAM; j++){
+        for(int j=0; j<n; j++){
             sumaFila += matriz[i][j];
         }
         if(sumaFila != sumaReferencia) 
@@ -81,6 +81,7 @@ int main(){
     do{
         generarMatriz(matriz,n);
         intentos++;
+        cout << "\nintento: \n" << intentos;
     }while(!esCuadradoMagico(matriz,n));
 
     cout << endl << "Cuadrado magico en " << intentos << "  intentos: \n";
