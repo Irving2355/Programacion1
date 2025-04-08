@@ -2,6 +2,30 @@
 
 using namespace std; 
 
+int funcion(int *x,int *y,int *t, int w){
+    cout << "\n Funcion ************\n\n";
+    int i=4;
+    int v[5]= {1,2,3,4,5};
+
+    cout << "*x: " << *x << " *y: "<< *y << " *t: " << *t << " w: " << w << endl;
+
+    int z = *x;
+    cout << "Pase el valor de 'a' a la variable z que es local z= "<<z << endl;
+
+    *x=*y;
+    *y=z; //swap
+
+    w--;
+    cout << "Decrementas w: " <<w << endl;
+
+    *t = *x + w + v[i];
+    cout << "\n *t: " << *t << endl;
+
+    y = t; //y & t apuntan a lo mismo
+
+    return *y;
+}
+
 int main() {
     int a=10, b=8, c=6, d=4;
     float t= 3.4;
@@ -37,6 +61,11 @@ int main() {
 
     int k = *ptrint + *ptr * 2; 
     cout << "\n k: " << k << endl; // suma de punteros
-    
+
+    cout << "\nValores en el main antes de la funcion\n";
+    cout << "a: " << a << " b: "<< b << " c: " << c << " d: " << d << endl;
+    int res = funcion(&a, &b, &c, d);
+    cout << "\nValores en el main despues de la funcion\n";
+    cout << "a: " << a << " b: "<< b << " c: " << c << " d: " << d << "res: " << res << endl;
     return 0; 
 }
