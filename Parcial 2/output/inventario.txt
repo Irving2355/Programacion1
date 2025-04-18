@@ -1,0 +1,25 @@
+Nombre: ThinkPad
+Precio: 52.03
+Tipo: Laptop
+Sistema Operativo: Linux
+---------------------------
+Nombre: iPad
+Precio: 32.66
+Tipo: Tablet
+Sistema Operativo: Android
+---------------------------
+Nombre: iPhone
+Precio: 65.44
+Tipo: Telefono
+Compania Telefonica: Telcel
+---------------------------
+Nombre: Galaxy S
+Precio: 49.4
+Tipo: Telefono
+Compania Telefonica: Telcel
+---------------------------
+Nombre: Pixel
+Precio: 43.98
+Tipo: Telefono
+Compania Telefonica: Telcel
+---------------------------
