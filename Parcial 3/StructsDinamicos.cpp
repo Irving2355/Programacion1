@@ -40,12 +40,14 @@ struct Biblioteca
 
 void crearBibloteca(struct Biblioteca* biblio, int cantidad){
     biblio->cantidad = cantidad;
-    biblio->libros = (struct Libro) malloc(cantidad * sizeof(struct Libro));
+    biblio->libros = (struct Libro*) malloc(cantidad * sizeof(struct Libro));
 }
 //*biblio
 void asignarLibro(struct Biblioteca* biblio, int index, char* titulo, int anio){
     if(index >= 0 && index < biblio->cantidad){
-        libro = &(biblio->libros[index]);
+        struct Libro *libro = &(biblio->libros[index]);
+        strncpy(libro->titulo,titulo,100);
+        libro->anio = anio;
     }
 }
 
