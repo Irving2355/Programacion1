@@ -51,11 +51,27 @@ void asignarLibro(struct Biblioteca* biblio, int index, char* titulo, int anio){
     }
 }
 
+void mostrarLibros(struct Biblioteca *Biblio){
+    for (int i=0; i<Biblio->cantidad; i++){
+        struct Libro *libro = & Biblio->libros[i];
+        cout << "Libro #" << i+1 << ": " << libro->titulo << " " << libro->anio << endl;
+    }
+}
+
+void liberarBibloteca(struct Biblioteca*miBiblio){
+    free(miBiblio->libros);
+    miBiblio->libros = NULL;
+    miBiblio->cantidad = 0;
+}
 int main(){
     Biblioteca miBiblio;
     crearBibloteca(&miBiblio, 2);
 
     asignarLibro(&miBiblio, 0 , "El principito", 1988);
     asignarLibro(&miBiblio, 1 , "Metodos Numericos", 2025);
+
+    mostrarLibros(&miBiblio);
+
+    liberarBibloteca(&miBiblio);
     return 0;
 }
